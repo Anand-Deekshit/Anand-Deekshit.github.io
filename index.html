@@ -661,7 +661,7 @@
 
             <div class="col-md-offset-2 col-md-8">
               <div class="form-group">
-                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Mobile No." data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject"
+                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Mobile No." data-rule="minlen:4" data-msg="Please enter a valid mobile number"
                 />
                 <div class="validation"></div>
               </div>
@@ -701,11 +701,13 @@
     var username = document.getElementById("name");
     var email = document.getElementById("email");
     var subject = document.getElementById("subject");
-    var message = document.getElementById("message");
     var mobile = document.getElementById("mobile");
+    var message = document.getElementById("message");
 
     function sendMail(){
-      window.open('mailto: deekshitanand@gmail.com?subject=' + subject.value + '&body=Name: ' + username.value + "%0D%0AEmail: " + email.value + "%0D%0AMobile No.: " + mobile.value + "%0D%0AMessage: " + message.value);   
+      if(username.value.length > 3 && email.value != "" && subject.value.length > 8 && mobile.value.length == 10 && message.value != ""){
+        window.open('mailto: deekshitanand@gmail.com?subject=' + subject.value + '&body=Name: ' + username.value + "%0D%0AEmail: " + email.value + "%0D%0AMobile No.: " + mobile.value + "%0D%0AMessage: " + message.value);   
+      }
     }
   </script>
 
